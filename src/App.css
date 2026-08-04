@@ -1,0 +1,71 @@
+.migration-page {
+  width: min(640px, calc(100% - 32px));
+  margin: 32px auto;
+  padding: 40px;
+  border: 1px solid #f0e4d2;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgb(61 48 40 / 8%);
+  text-align: center;
+}
+
+.migration-page__eyebrow {
+  margin: 0 0 12px;
+  color: #f58220;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.migration-page h1 {
+  margin: 0;
+  font-size: clamp(28px, 6vw, 40px);
+}
+
+.migration-page__description {
+  margin: 20px 0 8px;
+  color: #8a7b70;
+  line-height: 1.7;
+}
+
+.migration-page code {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #fff4e7;
+  color: #8b4b13;
+}
+
+.migration-page__navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.migration-page__navigation a {
+  padding: 8px 14px;
+  border: 1px solid #f0e4d2;
+  border-radius: 999px;
+  color: #3d3028;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.migration-page__navigation a:hover {
+  border-color: #ff9f43;
+  color: #f58220;
+}
+
+.migration-page__navigation a:focus-visible {
+  outline: 3px solid rgb(245 130 32 / 30%);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .migration-page {
+    padding: 32px 20px;
+  }
+}

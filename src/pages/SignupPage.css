@@ -1,0 +1,142 @@
+.signup-page {
+  min-height: 100vh;
+}
+
+.signup-page__content {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 48px 16px 80px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-page__title {
+  margin: 0 0 24px;
+  font-size: 22px;
+}
+
+.signup-page__form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.signup-page__field {
+  display: flex;
+  margin-bottom: 12px;
+  flex-direction: column;
+}
+
+.signup-page__field label:not(.signup-page__uploader),
+.signup-page__label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.signup-page__field input:not([type="file"]) {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #f0e4d2;
+  border-radius: 6px;
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+}
+
+.signup-page__field input:not([type="file"]):focus {
+  border-color: #f58220;
+}
+
+.signup-page__helper,
+.signup-page__form-error {
+  min-height: 18px;
+  margin: 4px 0 0;
+  color: #d93025;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.signup-page__uploader {
+  position: relative;
+  display: flex;
+  width: 150px;
+  height: 150px;
+  margin: 8px auto 0;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #f0e4d2;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-page__uploader > span:not(.sr-only) {
+  color: #8a7b70;
+  font-size: 40px;
+}
+
+.signup-page__uploader img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signup-page__uploader:focus-within {
+  outline: 3px solid rgb(245 130 32 / 30%);
+  outline-offset: 3px;
+}
+
+.signup-page__form-error {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.signup-page__submit {
+  height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: #f58220;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.signup-page__submit:disabled {
+  background: #ff9f43;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.signup-page__submit:focus-visible,
+.signup-page__login-link:focus-visible {
+  outline: 3px solid rgb(245 130 32 / 30%);
+  outline-offset: 3px;
+}
+
+.signup-page__login-link {
+  margin-top: 14px;
+  color: #3d3028;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.signup-page__login-link:hover {
+  text-decoration: underline;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

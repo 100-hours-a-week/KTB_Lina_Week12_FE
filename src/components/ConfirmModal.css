@@ -1,0 +1,60 @@
+.confirm-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  padding: 16px;
+  background: rgb(0 0 0 / 50%);
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-modal__dialog {
+  width: min(320px, 100%);
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.confirm-modal__dialog h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.confirm-modal__dialog p {
+  margin: 0 0 24px;
+  color: #8a7b70;
+  font-size: 13px;
+}
+
+.confirm-modal__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.confirm-modal__actions button {
+  padding: 10px 24px;
+  border: 0;
+  border-radius: 8px;
+  background: #3d3028;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+}
+
+.confirm-modal__actions .confirm-modal__confirm {
+  background: #ff9f43;
+}
+
+.confirm-modal__actions button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.confirm-modal__actions button:focus-visible {
+  outline: 3px solid rgb(245 130 32 / 40%);
+  outline-offset: 3px;
+}

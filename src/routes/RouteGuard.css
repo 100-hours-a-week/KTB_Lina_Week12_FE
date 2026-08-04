@@ -1,0 +1,7 @@
+.route-guard__loading {
+  display: grid;
+  min-height: 100vh;
+  margin: 0;
+  color: #8a7b70;
+  place-items: center;
+}

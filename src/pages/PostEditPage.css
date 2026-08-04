@@ -1,0 +1,24 @@
+.post-edit-page__status {
+  margin: 80px auto;
+  color: #8a7b70;
+  text-align: center;
+}
+
+.post-edit-page__status p {
+  margin: 0 0 16px;
+}
+
+.post-edit-page__status button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 16px;
+  background: #ff9f43;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+
+.post-edit-page__status button:focus-visible {
+  outline: 3px solid rgb(245 130 32 / 30%);
+  outline-offset: 3px;
+}

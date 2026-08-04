@@ -1,0 +1,15 @@
+.authenticated-layout {
+  min-height: 100vh;
+}
+
+.authenticated-layout__content {
+  display: grid;
+  min-height: calc(100vh - 89px);
+  place-items: center;
+}
+
+@media (max-width: 480px) {
+  .authenticated-layout__content {
+    min-height: calc(100vh - 72px);
+  }
+}
