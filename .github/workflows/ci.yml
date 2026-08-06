@@ -78,3 +78,17 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+	
+	- name: Trigger integrated EC2 deployment
+        env:
+          GH_TOKEN: ${{ secrets.BE_DEPLOY_TOKEN }}
+          FRONTEND_SHA: ${{ github.sha }}
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            /repos/100-hours-a-week/KTB_Lina_Week12_BE/dispatches \
+            -f event_type='frontend-image-published' \
+            -f "client_payload[service]=frontend" \
+            -f "client_payload[sha]=$FRONTEND_SHA"
