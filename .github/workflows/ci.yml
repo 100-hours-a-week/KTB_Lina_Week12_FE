@@ -78,8 +78,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-	
-	- name: Trigger integrated EC2 deployment
+
+      - name: Trigger integrated EC2 deployment
         env:
           GH_TOKEN: ${{ secrets.BE_DEPLOY_TOKEN }}
           FRONTEND_SHA: ${{ github.sha }}
