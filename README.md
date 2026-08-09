@@ -33,6 +33,14 @@ React와 Vite로 구현했으며, 회원 관리부터 게시글·댓글·좋아�
 | 품질 관리 | Oxlint, Node.js Test Runner |
 | 배포 | Nginx, Docker, GitHub Actions, GHCR |
 
+## 서비스 시연 영상
+
+아래 이미지를 클릭하면 전체 서비스 시연 영상을 확인할 수 있습니다.
+
+[![사소한 자랑 대회 시연 영상](docs/images/posts.png)](docs/videos/service-demo.m4v)
+
+- [시연 영상 직접 재생](docs/videos/service-demo.m4v)
+
 ## 서비스 화면
 
 ### 로그인 및 회원가입
