@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import {
   applyCommentChanged,
   applyCommentDeleted,
+  applyLikeChanged,
 } from './postEventState.js'
 
 const initialPost = {
@@ -51,4 +52,20 @@ test('삭제 이벤트의 댓글만 목록에서 제거한다', () => {
 
   assert.deepEqual(nextPost.comments, [])
   assert.equal(nextPost.commentsCount, 0)
+})
+
+test('좋아요 이벤트는 개수만 변경하고 현재 사용자의 상태는 유지한다', () => {
+  const nextPost = applyLikeChanged(
+    {
+      ...initialPost,
+      liked: true,
+      likesCount: 2,
+    },
+    {
+      likesCount: 3,
+    },
+  )
+
+  assert.equal(nextPost.likesCount, 3)
+  assert.equal(nextPost.liked, true)
 })

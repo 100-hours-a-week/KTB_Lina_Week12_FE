@@ -14,6 +14,7 @@ import useAuth from '../hooks/useAuth.js'
 import {
   applyCommentChanged,
   applyCommentDeleted,
+  applyLikeChanged,
 } from '../realtime/postEventState.js'
 import { subscribeToPostEvents } from '../realtime/postEvents.js'
 import './PostDetailPage.css'
@@ -100,6 +101,11 @@ function PostDetailPage() {
         onCommentDeleted: (payload) => {
           setPost((currentPost) =>
             applyCommentDeleted(currentPost, payload),
+          )
+        },
+        onLikeChanged: (payload) => {
+          setPost((currentPost) =>
+            applyLikeChanged(currentPost, payload),
           )
         },
       }),

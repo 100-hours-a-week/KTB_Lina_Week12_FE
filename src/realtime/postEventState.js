@@ -53,3 +53,18 @@ export function applyCommentDeleted(currentPost, payload) {
     commentsCount: nextCommentsCount(currentPost, payload),
   }
 }
+
+export function applyLikeChanged(currentPost, payload) {
+  if (
+    !currentPost ||
+    !Number.isInteger(payload?.likesCount) ||
+    payload.likesCount < 0
+  ) {
+    return currentPost
+  }
+
+  return {
+    ...currentPost,
+    likesCount: payload.likesCount,
+  }
+}

@@ -16,6 +16,7 @@ export function subscribeToPostEvents(
     onCommentCreated,
     onCommentUpdated,
     onCommentDeleted,
+    onLikeChanged,
   },
 ) {
   const eventSource = new EventSource(
@@ -37,6 +38,7 @@ export function subscribeToPostEvents(
     'comment-deleted',
     onCommentDeleted,
   )
+  addJsonEventListener(eventSource, 'like-changed', onLikeChanged)
 
   return () => eventSource.close()
 }
