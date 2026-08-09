@@ -45,10 +45,5 @@ source/
 Docker용 Nginx 설정은 `nginx/default.conf`, EC2 직접 설치용 Nginx 설정은
 `deploy/direct/nginx/community.conf`에 있습니다.
 
-Docker 이미지의 Nginx는 로컬 Compose 또는 운영 TLS 게이트웨이 뒤의 내부
-HTTP 서버입니다. 공개 EC2 배포에서는 백엔드 저장소의 `deploy/compose.yml`
-게이트웨이가 HTTPS를 종료하며, 직접 설치할 때는 `community.conf`가 443을
-직접 처리합니다.
-
 실제 `.env`와 `.env.*` 파일은 Git에 포함하지 않으며 `.env.example`만
 공유합니다.

@@ -141,7 +141,7 @@ function PostForm({
               <input
                 type="file"
                 id="post-image"
-                accept="image/jpeg,image/png"
+                accept="image/*"
                 onChange={(event) =>
                   setImageFile(event.target.files?.[0] ?? null)
                 }
