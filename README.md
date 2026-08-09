@@ -35,11 +35,12 @@ React와 Vite로 구현했으며, 회원 관리부터 게시글·댓글·좋아�
 
 ## 서비스 시연 영상
 
-아래 이미지를 클릭하면 전체 서비스 시연 영상을 확인할 수 있습니다.
+GitHub README에서는 저장소의 동영상이 화면 안에서 바로 재생되지 않습니다.
+아래 미리보기 이미지 또는 재생 링크를 클릭하면 웹 브라우저에서 전체 영상을 확인할 수 있습니다.
 
-[![사소한 자랑 대회 시연 영상](docs/images/posts.png)](docs/videos/service-demo.m4v)
+[![사소한 자랑 대회 시연 영상 보기](docs/images/posts.png)](https://raw.githubusercontent.com/100-hours-a-week/KTB_Lina_Week12_FE/main/docs/videos/service-demo.mp4)
 
-- [시연 영상 직접 재생](docs/videos/service-demo.m4v)
+### [▶ 시연 영상 재생하기](https://raw.githubusercontent.com/100-hours-a-week/KTB_Lina_Week12_FE/main/docs/videos/service-demo.mp4)
 
 ## 서비스 화면
 
