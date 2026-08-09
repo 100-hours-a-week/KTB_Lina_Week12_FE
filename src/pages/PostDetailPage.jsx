@@ -11,6 +11,11 @@ import {
 import CommentItem from '../components/CommentItem.jsx'
 import ConfirmModal from '../components/ConfirmModal.jsx'
 import useAuth from '../hooks/useAuth.js'
+import {
+  applyCommentChanged,
+  applyCommentDeleted,
+} from '../realtime/postEventState.js'
+import { subscribeToPostEvents } from '../realtime/postEvents.js'
 import './PostDetailPage.css'
 
 function formatCount(count) {
@@ -78,6 +83,28 @@ function PostDetailPage() {
       isActive = false
     }
   }, [postId])
+
+  useEffect(
+    () =>
+      subscribeToPostEvents(postId, {
+        onCommentCreated: (payload) => {
+          setPost((currentPost) =>
+            applyCommentChanged(currentPost, payload),
+          )
+        },
+        onCommentUpdated: (payload) => {
+          setPost((currentPost) =>
+            applyCommentChanged(currentPost, payload),
+          )
+        },
+        onCommentDeleted: (payload) => {
+          setPost((currentPost) =>
+            applyCommentDeleted(currentPost, payload),
+          )
+        },
+      }),
+    [postId],
+  )
 
   const handleLike = async () => {
     if (isPending) {
