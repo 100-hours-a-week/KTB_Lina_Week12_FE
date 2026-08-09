@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { uploadImage } from '../api/images.js'
 import AuthHeader from '../components/AuthHeader.jsx'
 import { API_BASE_URL } from '../config/api.js'
 import './SignupPage.css'
@@ -9,12 +8,8 @@ const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const PASSWORD_PATTERN =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+=-]).{8,20}$/
 
-function validateForm({ email, nickname, password, passwordConfirm, profile }) {
+function validateForm({ email, nickname, password, passwordConfirm }) {
   const errors = {}
-
-  if (!profile) {
-    errors.profile = '프로필 사진을 추가해주세요.'
-  }
 
   if (!email) {
     errors.email = '이메일을 입력해주세요.'
@@ -52,8 +47,6 @@ function SignupPage() {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [nickname, setNickname] = useState('')
-  const [profile, setProfile] = useState(null)
-  const [previewUrl, setPreviewUrl] = useState('')
   const [hasInteracted, setHasInteracted] = useState(false)
   const [serverErrors, setServerErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -64,22 +57,9 @@ function SignupPage() {
     password: password.trim(),
     passwordConfirm: passwordConfirm.trim(),
     nickname: nickname.trim(),
-    profile,
   }
   const validationErrors = validateForm(values)
   const isValid = Object.keys(validationErrors).length === 0
-
-  useEffect(() => {
-    if (!profile) {
-      setPreviewUrl('')
-      return undefined
-    }
-
-    const objectUrl = URL.createObjectURL(profile)
-    setPreviewUrl(objectUrl)
-
-    return () => URL.revokeObjectURL(objectUrl)
-  }, [profile])
 
   const getError = (field) => {
     if (serverErrors[field]) {
@@ -99,13 +79,6 @@ function SignupPage() {
     }))
   }
 
-  const handleProfileChange = (event) => {
-    const selectedFile = event.target.files?.[0] ?? null
-    setProfile(selectedFile)
-    setHasInteracted(true)
-    setServerErrors((errors) => ({ ...errors, profile: '', form: '' }))
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     setHasInteracted(true)
@@ -118,7 +91,6 @@ function SignupPage() {
     setServerErrors({})
 
     try {
-      const profileImageUrl = await uploadImage(profile)
       const response = await fetch(`${API_BASE_URL}/users/signup`, {
         method: 'POST',
         headers: {
@@ -128,7 +100,6 @@ function SignupPage() {
           email: values.email,
           password: values.password,
           nickname: values.nickname,
-          profile_image: profileImageUrl,
         }),
       })
       const result = await response.json()
@@ -163,29 +134,6 @@ function SignupPage() {
           noValidate
           onSubmit={handleSubmit}
         >
-          <div className="signup-page__field">
-            <span className="signup-page__label">프로필 사진</span>
-            <p className="signup-page__helper">{getError('profile')}</p>
-            <label
-              className="signup-page__uploader"
-              htmlFor="profile-input"
-            >
-              {previewUrl ? (
-                <img src={previewUrl} alt="선택한 프로필 미리보기" />
-              ) : (
-                <span aria-hidden="true">+</span>
-              )}
-              <span className="sr-only">프로필 사진 선택</span>
-            </label>
-            <input
-              className="sr-only"
-              type="file"
-              id="profile-input"
-              accept="image/*"
-              onChange={handleProfileChange}
-            />
-          </div>
-
           <div className="signup-page__field">
             <label htmlFor="email">이메일*</label>
             <input

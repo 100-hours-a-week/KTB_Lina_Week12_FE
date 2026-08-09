@@ -149,7 +149,7 @@ function ProfileEditPage() {
           className="sr-only"
           type="file"
           id="profile-image"
-          accept="image/*"
+          accept="image/jpeg,image/png"
           onChange={(event) =>
             setProfileFile(event.target.files?.[0] ?? null)
           }
